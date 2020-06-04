@@ -437,7 +437,6 @@ int main(int argc, char *argv[])
         rinfo.in_filename = argv[1];
     }
 
-    av_register_all();
     avformat_network_init();
 
     if ((ret = avformat_open_input(&ifmt_ctx, rinfo.in_filename, 0, 0))) {
