@@ -298,8 +298,8 @@ void *accept_thread(void *arg)
         }
 
         while ((handshake = avio_handshake(client)) > 0) {
-            av_opt_get(client, "method", AV_OPT_SEARCH_CHILDREN, &method);
-            av_opt_get(client, "resource", AV_OPT_SEARCH_CHILDREN, &resource);
+            av_opt_get(client, "method", AV_OPT_SEARCH_CHILDREN, (uint8_t **)&method);
+            av_opt_get(client, "resource", AV_OPT_SEARCH_CHILDREN, (uint8_t **)&resource);
             printf("method: %s resource: %s\n", method, resource);
             if (method && strlen(method) && strncmp("GET", method, 3)) {
                 reply_code = 400;
